@@ -1,40 +1,58 @@
 #include <stdio.h>
 
-#define BISPO 5
-#define TORRE 5
-#define RAINHA 8
-#define CAVALO 2
+// Constantes para os movimentos das peças
+#define BISPO_MOV 5
+#define TORRE_MOV 5
+#define RAINHA_MOV 8
+
+// Funções recursivas para movimentação das peças
+void moverBispo(int mov) {
+    if (mov > 0) {
+        printf("Diagonal Superior Direita\n");
+        moverBispo(mov - 1);
+    }
+}
+
+void moverTorre(int mov) {
+    if (mov > 0) {
+        printf("Direita\n");
+        moverTorre(mov - 1);
+    }
+}
+
+void moverRainha(int mov) {
+    if (mov > 0) {
+        printf("Esquerda\n");
+        moverRainha(mov - 1);
+    }
+}
+
+void moverCavalo() {
+    for (int i = 0; i < 1; i++) {
+        for (int j = 0; j < 2; j++) {
+            printf("Cima\n");
+        }
+        printf("Direita\n");
+
+    }
+}
 
 int main() {
-
     // Movimentação do Bispo
     printf("Movimentação do Bispo:\n");
-    for (int i = 0; i < BISPO; i++) {
-        printf("Diagonal Superior Direita\n");
-    }
+    moverBispo(BISPO_MOV);
 
     // Movimentação da Torre
-    printf("\nMovimentação da Torre:\n");
-    for (int i = 0; i < TORRE; i++) {
-        printf("Direita\n");
-    }
+    printf("Movimentação da Torre:\n");
+    moverTorre(TORRE_MOV);
 
     // Movimentação da Rainha
-    printf("\nMovimentação da Rainha:\n");
-    for (int i = 0; i < RAINHA; i++) {
-        printf("Esquerda\n");
-    }
-    
+    printf("Movimentação da Rainha:\n");
+    moverRainha(RAINHA_MOV);
+
     // Movimentação do Cavalo
-    printf("\nMovimentação do Cavalo:\n"); 
-    for (int i = 0; i < CAVALO; i++) {
-        printf("Baixo\n");
-    }
-    int j = 0;
-    while (j < 1) {
-        printf("Esquerda\n");
-        j++;
-    }
-     
+    printf("Movimentação do Cavalo:\n");
+    moverCavalo();
+
     return 0;
 }
